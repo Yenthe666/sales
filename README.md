@@ -10,3 +10,6 @@ The amount is configurable under Sales > Configuration > Settings:
 
 The price added on the order(s) is defined on the product "Transport cost":
 ![image](https://user-images.githubusercontent.com/6352350/164000250-9a535e0a-2270-418c-907d-012001e602a1.png)
+
+Odoo will automatically add or remove the cost on the sale order the moment is it saved.<br/>
+We decided to do this on the save operation to safe computations/delays as we only need it to update automatically once really.
