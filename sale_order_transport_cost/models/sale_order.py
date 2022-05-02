@@ -11,7 +11,7 @@ class SaleOrder(models.Model):
         sale_order = super(SaleOrder, self).write(values)
 
         # Get the order total limit for transportation costs
-        order_limit = self.env['ir.config_parameter'].get_param('sale_order_transport_cost.sale_order_total_for_transport_cost')
+        order_limit = self.env['ir.config_parameter'].sudo().get_param('sale_order_transport_cost.sale_order_total_for_transport_cost')
 
         # If there is an order limit configured and the order is a draft, process transport costs
         if order_limit and order_limit.isdigit() and self.state == 'draft':
