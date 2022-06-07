@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="product_category_price_update_wizard_form" model="ir.ui.view">
+        <field name="name">product.category.price.update.wizard.form</field>
+        <field name="model">product.category.price.update.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Update product prices">
+                <sheet>
+                    <field name="prices_recently_updated" invisible="1"/>
+                    <div class="alert alert-warning" role="alert" attrs="{'invisible': [('prices_recently_updated', '=', False)]}">
+                        <p>The product prices for this category were already updated recently.</p>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="increase_price_by"/>
+                        </group>
+                        <group>
+                            <label for="purchase_price" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
+                            <div attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}">
+                                <field name="purchase_price" class="oe_inline" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
+                                %
+                            </div>
+                            <field name="purchase_price" attrs="{'invisible': [('increase_price_by', '=', 'percentage')]}"/>
+                            <label for="sale_price" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
+                            <div attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}">
+                                <field name="sale_price" class="oe_inline" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
+                                %
+                            </div>
+                            <field name="sale_price" attrs="{'invisible': [('increase_price_by', '=', 'percentage')]}"/>
+                        </group>
+                        <group>
+                            <field name="product_category_id"/>
+                            <field name="product_category_child_ids" invisible="1"/>
+                            <field name="include_sub_categories" widget="boolean_toggle"
+                                   attrs="{'invisible': [('product_category_child_ids', '=', [])]}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="cancel"
+                                string="Cancel"
+                                class="btn-secondary"
+                                special="cancel"/>
+                        <button name="action_update_prices"
+                                string="Update prices"
+                                type="object"
+                                class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
