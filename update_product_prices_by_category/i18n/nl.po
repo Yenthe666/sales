@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-08 07:55+0000\n"
-"PO-Revision-Date: 2022-06-08 07:55+0000\n"
+"POT-Creation-Date: 2022-06-08 13:26+0000\n"
+"PO-Revision-Date: 2022-06-08 13:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -74,6 +74,12 @@ msgstr "Laatst bijgewerkt op"
 
 #. module: update_product_prices_by_category
 #: code:addons/update_product_prices_by_category/wizard/product_category_price_update_wizard.py:0
+#, python-format
+msgid "No sale or purchase price change"
+msgstr "Geen verkoop- of aankoopprijswijziging"
+
+#. module: update_product_prices_by_category
+#: code:addons/update_product_prices_by_category/wizard/product_category_price_update_wizard.py:0
 #: model:ir.model.fields.selection,name:update_product_prices_by_category.selection__product_category_price_update_wizard__increase_price_by__percentage
 #, python-format
 msgid "Percentage"
@@ -105,6 +111,18 @@ msgid "Product price last update"
 msgstr "Productprijs laatst bijgewerkt"
 
 #. module: update_product_prices_by_category
+#: code:addons/update_product_prices_by_category/wizard/product_category_price_update_wizard.py:0
+#, python-format
+msgid "Product prices updated"
+msgstr "Product prijzen bijgewerkt"
+
+#. module: update_product_prices_by_category
+#: code:addons/update_product_prices_by_category/wizard/product_category_price_update_wizard.py:0
+#, python-format
+msgid "Products with updated price"
+msgstr "Producten met bijgewerkte prijs"
+
+#. module: update_product_prices_by_category
 #: model:ir.model.fields,field_description:update_product_prices_by_category.field_product_category_price_update_wizard__purchase_price_difference
 msgid "Purchase price"
 msgstr "Aankoopprijs"
@@ -113,6 +131,12 @@ msgstr "Aankoopprijs"
 #: model:ir.model.fields,field_description:update_product_prices_by_category.field_product_category_price_update_wizard__sale_price_difference
 msgid "Sale price"
 msgstr "Verkoopprijs"
+
+#. module: update_product_prices_by_category
+#: code:addons/update_product_prices_by_category/wizard/product_category_price_update_wizard.py:0
+#, python-format
+msgid "The prices of %s products have been updated successfully."
+msgstr "De prijzen van %s producten zijn succesvol bijgewerkt."
 
 #. module: update_product_prices_by_category
 #: model_terms:ir.ui.view,arch_db:update_product_prices_by_category.product_category_price_update_wizard_form
@@ -145,8 +169,8 @@ msgid ""
 "You can fill in a percentage or a fixed price to increase the purchase "
 "prices."
 msgstr ""
-"Je kan een percentage of vaste prijs invullen om de aankoopprijzen mee "
-"te verhogen."
+"Je kan een percentage of vaste prijs invullen om de aankoopprijzen mee te "
+"verhogen."
 
 #. module: update_product_prices_by_category
 #: code:addons/update_product_prices_by_category/wizard/product_category_price_update_wizard.py:0
@@ -155,5 +179,11 @@ msgstr ""
 msgid ""
 "You can fill in a percentage or a fixed price to increase the sales prices."
 msgstr ""
-"Je kan een percentage of vaste prijs invullen om de verkoopprijzen mee "
-"te verhogen."
+"Je kan een percentage of vaste prijs invullen om de verkoopprijzen mee te "
+"verhogen."
+
+#. module: update_product_prices_by_category
+#: code:addons/update_product_prices_by_category/wizard/product_category_price_update_wizard.py:0
+#, python-format
+msgid "You must define at least one price change!"
+msgstr "Je moet minstens één prijswijziging instellen!"
