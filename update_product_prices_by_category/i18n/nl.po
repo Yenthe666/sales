@@ -76,7 +76,7 @@ msgstr "Laatst bijgewerkt op"
 #: code:addons/update_product_prices_by_category/wizard/product_category_price_update_wizard.py:0
 #, python-format
 msgid "No sale or purchase price change"
-msgstr "Geen verkoop- of aankoopprijswijzing"
+msgstr "Geen verkoop- of aankoopprijswijziging"
 
 #. module: update_product_prices_by_category
 #: code:addons/update_product_prices_by_category/wizard/product_category_price_update_wizard.py:0
@@ -186,4 +186,4 @@ msgstr ""
 #: code:addons/update_product_prices_by_category/wizard/product_category_price_update_wizard.py:0
 #, python-format
 msgid "You must define at least one price change!"
-msgstr "Je moet minstens één prijswijzging instellen!"
+msgstr "Je moet minstens één prijswijziging instellen!"
