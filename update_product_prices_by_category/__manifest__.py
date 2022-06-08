@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "update_product_prices_product_category",
+    'name': "update_product_prices_by_category",
 
     'summary': """
         Update product prices for a product category
@@ -25,11 +25,8 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-
         'data/ir_config_parameter.xml',
-
         'wizard/product_category_price_update_wizard.xml',
-
         'views/product_category_views.xml',
     ],
 }

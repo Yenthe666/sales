@@ -5,7 +5,7 @@ from odoo import models, fields, _
 class ProductCategory(models.Model):
     _inherit = 'product.category'
 
-    product_category_price_update_timestamp = fields.Datetime(
+    product_prices_last_updated = fields.Datetime(
         string='Product price last update'
     )
 

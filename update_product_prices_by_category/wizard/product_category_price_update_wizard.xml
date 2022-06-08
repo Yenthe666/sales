@@ -15,18 +15,18 @@
                             <field name="increase_price_by"/>
                         </group>
                         <group>
-                            <label for="purchase_price" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
+                            <label for="purchase_price_difference" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
                             <div attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}">
-                                <field name="purchase_price" class="oe_inline" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
+                                <field name="purchase_price_difference" class="oe_inline" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
                                 %
                             </div>
-                            <field name="purchase_price" attrs="{'invisible': [('increase_price_by', '=', 'percentage')]}"/>
-                            <label for="sale_price" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
+                            <field name="purchase_price_difference" attrs="{'invisible': [('increase_price_by', '=', 'percentage')]}"/>
+                            <label for="sale_price_difference" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
                             <div attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}">
-                                <field name="sale_price" class="oe_inline" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
+                                <field name="sale_price_difference" class="oe_inline" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
                                 %
                             </div>
-                            <field name="sale_price" attrs="{'invisible': [('increase_price_by', '=', 'percentage')]}"/>
+                            <field name="sale_price_difference" attrs="{'invisible': [('increase_price_by', '=', 'percentage')]}"/>
                         </group>
                         <group>
                             <field name="product_category_id"/>
