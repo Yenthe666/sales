@@ -123,7 +123,15 @@ class ProductCategoryPriceUpdateWizard(models.TransientModel):
                 'message': _('The prices of %s products have been updated successfully.') % str(len(products)),
                 'sticky': False,
                 'type': 'success',
-                'next': {'type': 'ir.actions.act_window_close'},
+                'next': {
+                    'name': _('Products with updated price'),
+                    'view_mode': 'kanban,list,form',
+                    'views': [(self.env.ref('product.product_kanban_view').id, 'kanban'), (self.env.ref('product.product_product_tree_view').id, 'list')],
+                    'res_model': 'product.product',
+                    'type': 'ir.actions.act_window',
+                    'target': 'current',
+                    'domain': [('id', 'in', products.ids)]
+                }
             }
         }
 
