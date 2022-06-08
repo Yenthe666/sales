@@ -18,6 +18,8 @@ Let's go over them one by one:
 - "Product Category": the category for which you want to update prices. It is by default set to the current category from which you opened the wizard.
 - "Update underlying categories": If this option is checked on and the current product category has underlying categories all the products beloning to the subcategories will also get price updates. Use it with caution ;-)
 
+After clicking on "Update prices" all products will be updated and in the chatter of the product(s) a notification will be logged showing the price changes:<br/>
+![image](https://user-images.githubusercontent.com/6352350/172600974-16e1eaf2-8d4b-4669-b26c-e7baacfc6468.png)
 
 **Tip:** The wizard will give a visual warning if a recent price update has been done on the current category:
 ![image](https://user-images.githubusercontent.com/6352350/172582335-f8dafb31-2657-455d-8558-fe97d24ac893.png)
