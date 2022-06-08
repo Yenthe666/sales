@@ -72,9 +72,9 @@ class ProductCategoryPriceUpdateWizard(models.TransientModel):
             details = self._get_price_details(product)
             body = 'Price update for category %s:<br/><br/>' % self.product_category_id.name
             if details.get('standard_price'):
-                body += 'Sale price: %s -> %s<br/>' % (product.standard_price, details.get('standard_price'))
+                body += 'Sale price: %s -> %s<br/>' % (f'{product.currency_id.symbol} {round(product.lst_price, 2)}', f"{product.currency_id.symbol} {round(details.get('lst_price'), 2)}")
             if details.get('lst_price'):
-                body += 'Cost price: %s -> %s<br/>' % (product.lst_price, details.get('lst_price'))
+                body += 'Cost price: %s -> %s<br/>' % (f'{product.currency_id.symbol} {round(product.standard_price, 2)}', f"{product.currency_id.symbol} {round(details.get('standard_price'), 2)}")
             product.message_post(message_type='comment', body=body)
             product.update(details)
 
