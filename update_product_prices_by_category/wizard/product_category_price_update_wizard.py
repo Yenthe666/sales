@@ -67,6 +67,17 @@ class ProductCategoryPriceUpdateWizard(models.TransientModel):
                 record.prices_recently_updated = False
 
     def action_update_prices(self):
+        if not self.purchase_price_difference and not self.sale_price_difference:
+            return {
+                'type': 'ir.actions.client',
+                'tag': 'display_notification',
+                'params': {
+                    'title': _('No sale or purchase price change'),
+                    'message': _('You must define at least one price change!'),
+                    'sticky': False,
+                    'type': 'warning',
+                }
+            }
         categories = self.product_category_id
         # If the category has underlying categories and the option was selected in the wizard
         # we will add all subcategories to update their prices too.
@@ -104,6 +115,17 @@ class ProductCategoryPriceUpdateWizard(models.TransientModel):
         categories.update({
             'product_prices_last_updated': datetime.datetime.now()
         })
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': _('Product prices updated'),
+                'message': _('The prices of %s products have been updated successfully.') % str(len(products)),
+                'sticky': False,
+                'type': 'success',
+                'next': {'type': 'ir.actions.act_window_close'},
+            }
+        }
 
     def _get_price_details(self, product):
         """
