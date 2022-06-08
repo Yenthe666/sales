@@ -8,13 +8,13 @@
                 <sheet>
                     <field name="prices_recently_updated" invisible="1"/>
                     <div class="alert alert-warning" role="alert" attrs="{'invisible': [('prices_recently_updated', '=', False)]}">
-                        <p>The product prices for this category were already updated recently.</p>
+                        <p class="pt-4 font-weight-bold">
+                            The prices for this category where last updated on <field name="product_prices_last_updated" readonly="1"/>
+                        </p>
                     </div>
                     <group>
                         <group>
                             <field name="increase_price_by"/>
-                        </group>
-                        <group>
                             <label for="purchase_price_difference" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
                             <div attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}">
                                 <field name="purchase_price_difference" class="oe_inline" attrs="{'invisible':[('increase_price_by', '!=', 'percentage')]}"/>
@@ -27,9 +27,7 @@
                                 %
                             </div>
                             <field name="sale_price_difference" attrs="{'invisible': [('increase_price_by', '=', 'percentage')]}"/>
-                        </group>
-                        <group>
-                            <field name="product_category_id"/>
+                            <field name="product_category_id" required="1"/>
                             <field name="product_category_child_ids" invisible="1"/>
                             <field name="include_sub_categories" widget="boolean_toggle"
                                    attrs="{'invisible': [('product_category_child_ids', '=', [])]}"/>

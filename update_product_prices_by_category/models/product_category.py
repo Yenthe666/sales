@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields, _
+from odoo import models, fields, api, _
 
 
 class ProductCategory(models.Model):
     _inherit = 'product.category'
 
     product_prices_last_updated = fields.Datetime(
-        string='Product price last update'
+        string='Product prices last updated'
     )
 
     def action_open_product_price_update_wizard(self):
