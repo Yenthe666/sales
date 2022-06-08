@@ -46,8 +46,17 @@ class ProductCategoryPriceUpdateWizard(models.TransientModel):
         compute='_compute_prices_recently_updated'
     )
 
+    product_prices_last_updated = fields.Datetime(
+        related='product_category_id.product_prices_last_updated',
+        string='Product prices last updated'
+    )
+
     @api.onchange('product_category_id')
     def _compute_prices_recently_updated(self):
+        """
+            Checks when the last price update was and if it is within the period set in the config param.
+            If so we show a visual warning in the wizard to warn the user.
+        """
         config_param_days = self.env['ir.config_parameter'].sudo().get_param('update_product_prices_by_category.product_price_update_days_for_warning')
         for record in self:
             if config_param_days \
@@ -59,23 +68,37 @@ class ProductCategoryPriceUpdateWizard(models.TransientModel):
 
     def action_update_prices(self):
         categories = self.product_category_id
+        # If the category has underlying categories and the option was selected in the wizard
+        # we will add all subcategories to update their prices too.
         if self.include_sub_categories:
             child_categories = self.product_category_id.child_id
             while child_categories:
                 categories += child_categories
                 child_categories = child_categories.child_id
 
+        # Find all the products of the current category / categories
         products = self.env['product.product'].search([
             ('categ_id', 'in', categories.ids)
         ])
+
+        # Update the details per product
         for product in products:
             details = self._get_price_details(product)
             body = 'Price update for category %s:<br/><br/>' % self.product_category_id.name
             if details.get('standard_price'):
-                body += 'Sale price: %s -> %s<br/>' % (f'{product.currency_id.symbol} {round(product.lst_price, 2)}', f"{product.currency_id.symbol} {round(details.get('lst_price'), 2)}")
+                body += 'Sale price: %s -> %s<br/>' % (
+                    f'{product.currency_id.symbol} {round(product.lst_price, 2)}',
+                    f"{product.currency_id.symbol} {round(details.get('lst_price'), 2)}"
+                )
             if details.get('lst_price'):
-                body += 'Cost price: %s -> %s<br/>' % (f'{product.currency_id.symbol} {round(product.standard_price, 2)}', f"{product.currency_id.symbol} {round(details.get('standard_price'), 2)}")
+                body += 'Cost price: %s -> %s<br/>' % (
+                    f'{product.currency_id.symbol} {round(product.standard_price, 2)}',
+                    f"{product.currency_id.symbol} {round(details.get('standard_price'), 2)}"
+                )
             product.message_post(message_type='comment', body=body)
+            # Only one variant, let's post the message on the template too.
+            if len(product.product_tmpl_id.product_variant_ids) == 1:
+                product.product_tmpl_id.message_post(message_type='comment', body=body)
             product.update(details)
 
         categories.update({
@@ -83,11 +106,20 @@ class ProductCategoryPriceUpdateWizard(models.TransientModel):
         })
 
     def _get_price_details(self, product):
+        """
+            Computes the new cost & sales prices for the current product
+            Args:
+                product (record): product.product record
+            Returns:
+                details (dictionary): dictionary with the sales price (lst_price) and cost price (standard_price)
+        """
         details = {}
         if self.purchase_price_difference:
-            extra_price = self.purchase_price_difference if self.increase_price_by == 'fixed' else self.purchase_price_difference / 100 * product.standard_price
+            extra_price = self.purchase_price_difference if self.increase_price_by == 'fixed' else \
+                self.purchase_price_difference / 100 * product.standard_price
             details['standard_price'] = product.standard_price + extra_price
         if self.sale_price_difference:
-            extra_price = self.sale_price_difference if self.increase_price_by == 'fixed' else self.sale_price_difference / 100 * product.lst_price
+            extra_price = self.sale_price_difference if self.increase_price_by == 'fixed' else \
+                self.sale_price_difference / 100 * product.lst_price
             details['lst_price'] = product.lst_price + extra_price
         return details
