@@ -8,7 +8,8 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     list_price_last_updated = fields.Datetime(
-        string='Sale price last updated'
+        string='Sale price last updated',
+        default=datetime.datetime.now()
     )
 
     @api.constrains('list_price')
