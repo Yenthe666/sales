@@ -11,8 +11,9 @@ class SaleOrder(models.Model):
             If there are products with new price we show a wizard in which the user can update prices of lines.
         """
         price_updates = []
+        deposit_product_id = self.env['ir.config_parameter'].sudo().get_param('sale.default_deposit_product_id')
         for order_line in self.order_line:
-            if order_line.product_id:
+            if order_line.product_id and str(order_line.product_id.id) != deposit_product_id:
                 product_lst_price_with_pricelist = order_line.order_id.pricelist_id.get_product_price(order_line.product_id, 1, order_line.order_id.partner_id)
                 if order_line.product_id.list_price_last_updated \
                         and order_line.product_id.list_price_last_updated > self.create_date\
