@@ -7,13 +7,14 @@
                 <form>
                     <field name="sale_order_product_price_update_ids">
                         <tree editable="top" create="0"
-                              decoration-bf="new_price &lt;= old_price"
-                              decoration-success="new_price &gt;= old_price"
-                              decoration-warning="new_price &lt; old_price"
+                              decoration-bf="new_price_pricelist &lt;= old_price"
+                              decoration-success="new_price_pricelist &gt;= old_price"
+                              decoration-warning="new_price_pricelist &lt; old_price"
                         >
                             <field name="product_id"/>
                             <field name="old_price"/>
-                            <field name="new_price"/>
+                            <field name="new_price" readonly="1"/>
+                            <field name="new_price_pricelist"/>
                         </tree>
                     </field>
                     <footer>

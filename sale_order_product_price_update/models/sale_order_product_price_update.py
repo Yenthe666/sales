@@ -23,7 +23,11 @@ class SaleOrderProductPriceUpdate(models.TransientModel):
     )
 
     new_price = fields.Float(
-        string='New price'
+        string='New public price'
+    )
+
+    new_price_pricelist = fields.Float(
+        string='New price customer'
     )
 
     sale_order_product_price_update_wizard_id = fields.Many2one(
