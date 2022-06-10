@@ -13,12 +13,14 @@ class SaleOrder(models.Model):
         price_updates = []
         for order_line in self.order_line:
             if order_line.product_id:
+                product_lst_price_with_pricelist = order_line.order_id.pricelist_id.get_product_price(order_line.product_id, 1, order_line.order_id.partner_id)
                 if order_line.product_id.list_price_last_updated \
                         and order_line.product_id.list_price_last_updated > self.create_date\
-                        and order_line.product_id.lst_price != order_line.price_unit:
+                        and product_lst_price_with_pricelist != order_line.price_unit:
                     price_updates.append({
                         'sale_order_line_id': order_line.id,
                         'new_price': order_line.product_id.lst_price,
+                        'new_price_pricelist': product_lst_price_with_pricelist,
                     })
         price_update_ids = self.env['sale.order.product.price.update'].create(price_updates)
         # If there are new prices, we return the wizard containing the new prices

@@ -17,8 +17,8 @@ class SaleOrderProductPriceUpdateWizard(models.TransientModel):
             Updates the sale price of products on a quotation/order if there are any price changes
         """
         for price_update in self.sale_order_product_price_update_ids:
-            if price_update.new_price != price_update.old_price:
-                price_update.sale_order_line_id.price_unit = price_update.new_price
+            if price_update.new_price_pricelist != price_update.old_price:
+                price_update.sale_order_line_id.price_unit = price_update.new_price_pricelist
         self.cancel()
 
     def cancel(self):
