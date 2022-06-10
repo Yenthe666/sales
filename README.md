@@ -1,7 +1,22 @@
 # sales
 Apps related to Odoo it's sales features:
+- [sale_order_product_price_update](#sale_order_product_price_update): allow updating prices of quotation (lines) to quickly reflect price changes.
 - [update_product_prices_by_category](#update_product_prices_by_category): allow updating sales and cost prices for all products in a product category.
 
+
+## sale_order_product_price_update
+This app adds support to quickly update the sale prices of order lines in bulk through a button/wizard.<br/>
+In current times sale prices are going up rapidly and quite often. By using the button "Update product" prices on a quotation (form view) you can quickly<br/>
+get an overview of if prices increased, decreased or had no changes:
+![image](https://user-images.githubusercontent.com/6352350/173032994-beb241d0-20b9-41f3-91ad-3f650573334b.png)
+
+- For the product "Office lamp" went from a sale price of 145.00 to 135.00. If you would keep this line and click on the "Apply" button the line would be changed to 135.00.
+- For the product "Office Chair" we had a price increase from 65.00 per piece to 90.00 per piece. If you would keep this line and click on the "Apply" button the line would be changed to 90.00.
+- For the product "Accoustic Bloc Screens" you see no line as there is no price change.
+
+You can simply go through all the lines and choose to remove them, keep them, or even set a manual (new) price per piece.<br/>
+When you are done click on "Apply" and all lines on the quotation will be automatically updated.
+<b>Tip:</b> this app currently does not look at pricelists and takes the default sales price of the product.
 
 ## update_product_prices_by_category
 Adds support to update the sales and cost prices of products in bulk through the product categories.<br/>
