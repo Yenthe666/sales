@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="sale_order_template_type_person" model="sale.order.template.type">
+            <field name="name">Person</field>
+        </record>
+
+        <record id="sale_order_template_type_company" model="sale.order.template.type">
+            <field name="name">Company</field>
+        </record>
+
+        <record id="sale_order_template_type_employee" model="sale.order.template.type">
+            <field name="name">Employee</field>
+        </record>
+    </data>
+</odoo>

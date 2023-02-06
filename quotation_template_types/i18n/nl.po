@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* quotation_template_types
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-06 19:46+0000\n"
+"PO-Revision-Date: 2023-02-06 19:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: quotation_template_types
+#: model:sale.order.template.type,name:quotation_template_types.sale_order_template_type_company
+msgid "Company"
+msgstr "Bedrijf"
+
+#. module: quotation_template_types
+#: model:ir.model.fields,field_description:quotation_template_types.field_sale_order_template_type__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: quotation_template_types
+#: model:ir.model.fields,field_description:quotation_template_types.field_sale_order_template_type__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: quotation_template_types
+#: model:ir.model.fields,field_description:quotation_template_types.field_sale_order_template_type__display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: quotation_template_types
+#: model:sale.order.template.type,name:quotation_template_types.sale_order_template_type_employee
+msgid "Employee"
+msgstr "Werknemer"
+
+#. module: quotation_template_types
+#: model:ir.model.fields,field_description:quotation_template_types.field_sale_order_template_type__id
+msgid "ID"
+msgstr ""
+
+#. module: quotation_template_types
+#: model:ir.model.fields,field_description:quotation_template_types.field_sale_order_template_type____last_update
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: quotation_template_types
+#: model:ir.model.fields,field_description:quotation_template_types.field_sale_order_template_type__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: quotation_template_types
+#: model:ir.model.fields,field_description:quotation_template_types.field_sale_order_template_type__write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: quotation_template_types
+#: model:ir.model.fields,field_description:quotation_template_types.field_sale_order_template_type__name
+#: model_terms:ir.ui.view,arch_db:quotation_template_types.sale_order_template_type_form_view
+msgid "Name"
+msgstr "Naam"
+
+#. module: quotation_template_types
+#: model:sale.order.template.type,name:quotation_template_types.sale_order_template_type_person
+msgid "Person"
+msgstr "Persoon"
+
+#. module: quotation_template_types
+#: model:ir.model,name:quotation_template_types.model_sale_order_template
+msgid "Quotation Template"
+msgstr "Offertesjabloon"
+
+#. module: quotation_template_types
+#: model:ir.model,name:quotation_template_types.model_sale_order_template_type
+msgid "Quotation templates type"
+msgstr "Offertesjabloonsoorten"
+
+#. module: quotation_template_types
+#: model:ir.model.fields,field_description:quotation_template_types.field_sale_order_template__template_type_id
+#: model_terms:ir.ui.view,arch_db:quotation_template_types.sale_order_template_type_form_view
+#: model_terms:ir.ui.view,arch_db:quotation_template_types.sale_order_template_type_tree_view
+#: model_terms:ir.ui.view,arch_db:quotation_template_types.sale_order_template_view_search
+msgid "Template Type"
+msgstr "Sjabloonsoort"
+
+#. module: quotation_template_types
+#: model:ir.actions.act_window,name:quotation_template_types.action_sale_order_template_type
+#: model:ir.ui.menu,name:quotation_template_types.menu_action_sale_order_template_type
+msgid "Template Types"
+msgstr "Sjabloonsoorten"
