@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="sale_management.sale_order_template_view_form"/>
         <field name="arch" type="xml">
             <field name="company_id" position="after">
-                <field name="template_type"/>
+                <field name="template_type_id"/>
             </field>
         </field>
     </record>
@@ -18,7 +18,7 @@
         <field name="inherit_id" ref="sale_management.sale_order_template_view_search"/>
         <field name="arch" type="xml">
             <filter name="company_id" position="after">
-                <filter string="Template Type" name="template_type" context="{'group_by': 'template_type'}"/>
+                <filter string="Template Type" name="template_type" context="{'group_by': 'template_type_id'}"/>
             </filter>
         </field>
     </record>
