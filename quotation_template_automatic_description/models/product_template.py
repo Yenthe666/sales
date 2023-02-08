@@ -7,7 +7,8 @@ class ProductTemplate(models.Model):
     @api.constrains("description_sale")
     def _update_description_sale_quotation_template_lines(self):
         """
-        Update name on quotation template lines when description_sale is changed on product
+            When the description on a product is changed we will check if any of the quotation template lines contains
+            this product and if those lines should be updated automatically.
         """
         quotation_template_lines_obj = self.env["sale.order.template.line"]
         for product_template in self:
