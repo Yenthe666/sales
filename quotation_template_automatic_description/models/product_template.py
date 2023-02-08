@@ -12,10 +12,12 @@ class ProductTemplate(models.Model):
         """
         quotation_template_lines_obj = self.env["sale.order.template.line"]
         for product_template in self:
-            quotation_template_lines = quotation_template_lines_obj.search([
-                ("auto_update_description", "=", True),
-                ("product_id.product_tmpl_id", "=", product_template.id),
-            ])
-            quotation_template_lines.write({
-                "name": product_template.product_variant_ids[0].get_product_multiline_description_sale()
-            })
+            # check for product_variant_ids since they are not created when we create new template
+            if product_template.product_variant_ids:
+                quotation_template_lines = quotation_template_lines_obj.search([
+                    ("auto_update_description", "=", True),
+                    ("product_id.product_tmpl_id", "=", product_template.id),
+                ])
+                quotation_template_lines.write({
+                    "name": product_template.product_variant_ids[0].get_product_multiline_description_sale()
+                })
