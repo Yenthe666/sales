@@ -1,7 +1,16 @@
 # sales
 Apps related to Odoo it's sales features:
+- [quotation_template_automatic_description](#quotation_template_automatic_description): automatically update quotation template lines their description if the product description is changed
 - [quotation_template_customer](#quotation_template_customer): allow configuring customer(s) on a quotation template and filtering it for specific customers
 - [sale_order_transport_cost](#sale_order_transport_cost): allow configuring an extra fee for orders with a total under a specific threshold.
+
+## quotation_template_automatic_description
+Adds support to configure which quotation template lines their description should be, or shouldn't be, automatically updated.<br/>
+On every quotation template line there is now a checkbox "Auto update description?". If this box is checked on and somebody changes the description on the product we will automatically update the quotation template line it's description. <br/>
+If this box is not checked on when somebody changes the description on the related product we will not update the quotation template line.<br/>
+This app is especially handy in a database where you have a lot of quotation template (lines) and do not want to manage their descriptions on the lines.
+![image](https://user-images.githubusercontent.com/6352350/217465745-1fd19322-d6ba-484c-8840-47b00e188168.png)
+
 
 ## quotation_template_customer
 Adds support to configure customer(s) on the quotation templates.<br/>
