@@ -12,7 +12,7 @@ class ProductTemplate(models.Model):
         quotation_template_lines_obj = self.env["sale.order.template.line"]
         for product_template in self:
             quotation_template_lines = quotation_template_lines_obj.search([
-                ("sale_order_template_id.auto_update_description", "=", True),
+                ("auto_update_description", "=", True),
                 ("product_id.product_tmpl_id", "=", product_template.id),
             ])
             quotation_template_lines.write({
