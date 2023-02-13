@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-08 07:30+0000\n"
-"PO-Revision-Date: 2023-02-08 07:30+0000\n"
+"POT-Creation-Date: 2023-02-13 14:43+0000\n"
+"PO-Revision-Date: 2023-02-13 14:43+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,19 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: quotation_template_automatic_description
+#: model:ir.model.fields,field_description:quotation_template_automatic_description.field_sale_order_template__auto_update_description_updated
+msgid "Auto update description updated on line?"
+msgstr "Automatisch omschrijving bijgewerkt op regel?"
+
+#. module: quotation_template_automatic_description
 #: model:ir.model.fields,field_description:quotation_template_automatic_description.field_sale_order_template_line__auto_update_description
 msgid "Auto update description?"
 msgstr "Automatisch omschrijving bijwerken?"
+
+#. module: quotation_template_automatic_description
+#: model_terms:ir.ui.view,arch_db:quotation_template_automatic_description.sale_order_template_description_view_form
+msgid "The description on the line(s) will be automatically updated from the product description."
+msgstr "De omschrijving op de lijn(en) zal automatisch bijgewerkt worden met de omschrijving van het product zelf."
 
 #. module: quotation_template_automatic_description
 #: model:ir.model.fields,help:quotation_template_automatic_description.field_sale_order_template_line__auto_update_description
@@ -29,12 +39,14 @@ msgid ""
 "update the description set on the current quotation template line.This "
 "functionality serves as an easy way to manage/update descriptions in bulk "
 "for when you work with many quotation templates."
-msgstr "Wanneer deze checkbox is aangevinkt zal de omschrijving automatisch van "
-"deze lijn automatisch worden bijgewerkt wanneer de omschrijving op het gekoppelde product wordt gewijzigd. "
-"Indien de checkbox niet is aangevinkt negeren we deze lijn en zullen we de "
-"omschrijving van deze offertesjabloonlijn nooit wijzigen. Deze functionaliteit "
-"zorgt ervoor dat de omschrijving van offertesjabloonlijnen gemakkelijk in bulk kan bijgewerkt worden als er "
-"veel offertesjablonen zijn in het systeem."
+msgstr ""
+"Wanneer deze checkbox is aangevinkt zal de omschrijving automatisch van deze"
+" lijn automatisch worden bijgewerkt wanneer de omschrijving op het "
+"gekoppelde product wordt gewijzigd. Indien de checkbox niet is aangevinkt "
+"negeren we deze lijn en zullen we de omschrijving van deze "
+"offertesjabloonlijn nooit wijzigen. Deze functionaliteit zorgt ervoor dat de"
+" omschrijving van offertesjabloonlijnen gemakkelijk in bulk kan bijgewerkt "
+"worden als er veel offertesjablonen zijn in het systeem."
 
 #. module: quotation_template_automatic_description
 #: model:ir.model,name:quotation_template_automatic_description.model_product_template
@@ -42,6 +54,16 @@ msgid "Product"
 msgstr ""
 
 #. module: quotation_template_automatic_description
+#: model:ir.model,name:quotation_template_automatic_description.model_sale_order_template
+msgid "Quotation Template"
+msgstr "Offertesjabloon"
+
+#. module: quotation_template_automatic_description
 #: model:ir.model,name:quotation_template_automatic_description.model_sale_order_template_line
 msgid "Quotation Template Line"
 msgstr "Offertesjabloonregel"
+
+#. module: quotation_template_automatic_description
+#: model:ir.model.fields,help:quotation_template_automatic_description.field_sale_order_template__auto_update_description_updated
+msgid "Technical field to show banner on form view"
+msgstr "Technisch veld om banner te tonen op formulierweergave"

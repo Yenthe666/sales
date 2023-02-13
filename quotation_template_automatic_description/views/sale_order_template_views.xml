@@ -18,7 +18,7 @@
             </field>
             <xpath expr="//field[@name='sale_order_template_line_ids']" position="before">
                 <div class="alert alert-info text-center" role="alert" attrs="{'invisible': [('auto_update_description_updated', '=', False)]}">
-                    Description on the line will be automatically updated from Product.
+                    The description on the line(s) will be automatically updated from the product description.
                 </div>
             </xpath>
         </field>
