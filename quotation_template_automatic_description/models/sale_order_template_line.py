@@ -13,3 +13,14 @@ class SaleOrderTemplateLine(models.Model):
              "many quotation templates.",
         default=True
     )
+
+    @api.onchange("auto_update_description")
+    def _onchange_auto_update_description(self):
+        """
+            When the auto_update_description on a line is changed,
+            description should be updated automatically.
+        """
+        for line in self:
+            # check for product_variant_ids since they are not created when we create new template
+            if line.auto_update_description:
+                line.name = line.product_id.get_product_multiline_description_sale()
