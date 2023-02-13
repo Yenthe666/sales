@@ -6,8 +6,20 @@
         <field name="model">sale.order.template</field>
         <field name="inherit_id" ref="sale_management.sale_order_template_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//page/field[@name='sale_order_template_line_ids']/tree/field[@name='name']" position="after">
+            <xpath expr="//field[@name='sale_order_template_line_ids']/tree/field[@name='name']" position="after">
                 <field name="auto_update_description" widget="boolean_toggle" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='sale_order_template_line_ids']/tree/field[@name='name']" position="attributes">
+                <attribute name="attrs">{'readonly': [('auto_update_description', '=', True), ('display_type', '=', False)]}</attribute>
+                <attribute name="force_save">True</attribute>
+            </xpath>
+            <field name="company_id" position="after">
+                <field name="auto_update_description_updated" />
+            </field>
+            <xpath expr="//field[@name='sale_order_template_line_ids']" position="before">
+                <div class="alert alert-info text-center" role="alert" attrs="{'invisible': [('auto_update_description_updated', '=', False)]}">
+                    Description on the line will be automatically updated from Product.
+                </div>
             </xpath>
         </field>
     </record>

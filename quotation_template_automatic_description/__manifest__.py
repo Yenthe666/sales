@@ -1,6 +1,6 @@
 {
     'name': 'Quotation Template update description',
-    'version': '16.0.1.0.0',
+    'version': '16.0.1.0.1',
     'category': 'Sales',
     'summary': """This modules updates description on quotation template line when description is updated on product.""",
     'description': """This modules updates description on quotation template line when description is updated on product.""",
