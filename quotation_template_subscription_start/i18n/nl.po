@@ -1,0 +1,41 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* quotation_template_subscription_start
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-16 10:08+0000\n"
+"PO-Revision-Date: 2023-02-16 10:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: quotation_template_subscription_start
+#: model:ir.model,name:quotation_template_subscription_start.model_sale_order_template
+msgid "Quotation Template"
+msgstr "Offertesjabloon"
+
+#. module: quotation_template_subscription_start
+#: model:ir.model,name:quotation_template_subscription_start.model_sale_order
+msgid "Sales Order"
+msgstr "Verkooporder"
+
+#. module: quotation_template_subscription_start
+#: model:ir.model.fields,field_description:quotation_template_subscription_start.field_sale_order_template__start_after_days
+msgid "Start After"
+msgstr ""
+
+#. module: quotation_template_subscription_start
+#: model:ir.model.fields,help:quotation_template_subscription_start.field_sale_order_template__start_after_days
+msgid "Subscription will be started after configured days."
+msgstr ""
+
+#. module: quotation_template_subscription_start
+#: model_terms:ir.ui.view,arch_db:quotation_template_subscription_start.sale_template_subscription_view_form
+msgid "days"
+msgstr ""
