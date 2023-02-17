@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="sale_template_subscription_view_form" model="ir.ui.view">
+        <field name="name">sale.order.template.subscription.form.inherit</field>
+        <field name="model">sale.order.template</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_template_view_form"/>
+        <field name="arch" type="xml">
+            <field name="user_closable"  position="before">
+                <label for="start_after_days" attrs="{'invisible': [('recurrence_id','=', False)]}"/>
+                <div attrs="{'invisible': [('recurrence_id','=', False)]}">
+                    <field name="start_after_days" style="width: 3rem;"/>
+                    <div class="d-inline-block">days</div>
+                </div>
+            </field>
+        </field>
+    </record>
+
+</odoo>
