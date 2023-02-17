@@ -28,14 +28,14 @@ msgstr "Verkooporder"
 #. module: quotation_template_subscription_start
 #: model:ir.model.fields,field_description:quotation_template_subscription_start.field_sale_order_template__start_after_days
 msgid "Start After"
-msgstr ""
+msgstr "Start na"
 
 #. module: quotation_template_subscription_start
 #: model:ir.model.fields,help:quotation_template_subscription_start.field_sale_order_template__start_after_days
-msgid "Subscription will be started after configured days."
-msgstr ""
+msgid "Amount of days after which the subscription should start once the order has been signed/confirmed."
+msgstr "Aantal dagen tot abonnement start nadat de order ondertekend/bevestigd is."
 
 #. module: quotation_template_subscription_start
 #: model_terms:ir.ui.view,arch_db:quotation_template_subscription_start.sale_template_subscription_view_form
 msgid "days"
-msgstr ""
+msgstr "dagen"

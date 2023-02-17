@@ -6,5 +6,5 @@ class SaleOrderTemplate(models.Model):
 
     start_after_days = fields.Integer(
         string="Start After",
-        help="Subscription will be started after configured days."
+        help="Amount of days after which the subscription should start once the order has been signed/confirmed."
     )
