@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_category_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.category.form.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <sheet position="before">
+                <header>
+                    <button string="Update product prices"
+                            type="object"
+                            name="action_open_product_price_update_wizard"
+                            class="btn-primary"/>
+                </header>
+            </sheet>
+            <xpath expr="//field[@name='parent_id']" position="after">
+              <field name="product_prices_last_updated" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
