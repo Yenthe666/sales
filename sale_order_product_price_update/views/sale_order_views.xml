@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="sale_order_view_form_inherit" model="ir.ui.view">
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button name="action_sale_order_product_price_update_wizard"
+                        type="object"
+                        string="Update product prices">
+                </button>
+            </header>
+        </field>
+    </record>
+</odoo>
