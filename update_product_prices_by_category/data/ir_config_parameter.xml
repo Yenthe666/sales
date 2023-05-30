@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <record id="product_price_update_days_for_warning" model="ir.config_parameter">
+            <field name="key">update_product_prices_by_category.product_price_update_days_for_warning</field>
+            <field name="value">7</field>
+        </record>
+    </data>
+</odoo>
