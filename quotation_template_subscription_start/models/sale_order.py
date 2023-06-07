@@ -11,13 +11,17 @@ class SaleOrder(models.Model):
             Override of the Odoo method at
             https://github.com/odoo/enterprise/blob/a66f3e670334b2813430fb1f3b9e819192cc53b9/sale_subscription/models/sale_order.py#L628
             This allows us to control the start date of the subscription based on the subscription template it's
-            configured delay.
+            configured delay or default days set in sales configuration.
         """
         today = fields.Date.today()
         for sub in self:
-            if sub.sale_order_template_id.start_after_days:
+            if sub.sale_order_template_id:
                 today = today + relativedelta(days=sub.sale_order_template_id.start_after_days)
-                sub.write({
+            else:
+                default_start_after_days = self.env['ir.config_parameter'].sudo().get_param('quotation_template_subscription_start.default_start_after_days')
+                if default_start_after_days:
+                    today = today + relativedelta(days=int(default_start_after_days))
+            sub.write({
                     'next_invoice_date': today
                 })
             sub._portal_ensure_token()
