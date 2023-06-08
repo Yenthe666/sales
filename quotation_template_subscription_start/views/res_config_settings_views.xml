@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="65"/>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <div name="quotation_order_setting_container" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box" id="quotation_template_subscription_start_days">
+                    <div class="o_setting_right_pane">
+                        <label for="start_after_days"/>
+                        <div class="text-muted">
+                            Amount of days after which the subscription should start once the order has been signed/confirmed.
+                        </div>
+                        <div class="mt16">
+                            <field name="start_after_days"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>
