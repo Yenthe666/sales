@@ -9,5 +9,4 @@ class ResConfigSettings(models.TransientModel):
         string="Default delay in Subscription",
         help="Amount of days after which the subscription should start once the order has been signed/confirmed.",
         config_parameter='quotation_template_subscription_start.default_start_after_days',
-        default=365
     )
