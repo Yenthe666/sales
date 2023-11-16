@@ -76,7 +76,7 @@ msgstr "Laatst bijgewerkt op"
 #. module: sale_order_product_price_update
 #: model:ir.model.fields,field_description:sale_order_product_price_update.field_sale_order_product_price_update__new_price_pricelist
 msgid "New price customer"
-msgstr ""
+msgstr "Nieuwe prijs klant"
 
 #. module: sale_order_product_price_update
 #: model:ir.model.fields,field_description:sale_order_product_price_update.field_sale_order_product_price_update__new_price
