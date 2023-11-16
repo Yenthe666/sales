@@ -1,7 +1,27 @@
 # sales
 Apps related to Odoo it's sales features:
+- [sale_order_product_price_update](#sale_order_product_price_update): allow updating prices of quotation (lines) to quickly reflect price changes.
 - [sale_order_transport_cost](#sale_order_transport_cost): allow configuring an extra fee for orders with a total under a specific threshold.
 - [update_product_prices_by_category](#update_product_prices_by_category): allow updating sales and cost prices for all products in a product category.
+
+## sale_order_product_price_update
+This app adds support to quickly update the sale prices of order lines in bulk through a button/wizard.<br/>
+In current times sale prices are going up rapidly and quite often. By using the button "Update product" prices on a quotation (form view) you can quickly<br/>
+get an overview of if prices increased, decreased or had no changes:
+![image](https://user-images.githubusercontent.com/6352350/173044321-3b237805-2ee9-4441-a6ba-6363ec9f903f.png)
+
+For every order line in the wizard you will see fur fields. Let's go over them:
+- "Product": the link to the product for visual information,
+- "Old price": the current price per piece on the order line (before applying these changes),
+- "New public price": the sale price per piece without any discounts or pricelists applied. This is the public sale price (sale price set on the product),
+- "New price customer": the automatically computed new sale price by taking the sale price of the product and applying the pricelist set on the order
+
+- For the product "Office lamp" went from a (public!) sale price of 145.00 to 135.00. If you would keep this line and click on the "Apply" button the line would be changed to 121.50 because the current quotation has a pricelist with a discount rule set.
+- For the product "Office Chair" we had a price increase from 65.00 per piece to 90.00 per piece (public price). If you would keep this line and click on the "Apply" button the line would be changed to 81.00 because the current quotation has a pricelist with a discount rule set.
+- For the product "Accoustic Bloc Screens" you see no line as there is no price change.
+
+You can simply go through all the lines and choose to remove them, keep them, or even set a manual (new) price per piece.<br/>
+When you are done click on "Apply" and all lines on the quotation will be automatically updated.
 
 ## sale_order_transport_cost
 Adds support to configure an extra transport cost if an order is under a specific amount.<br/>
