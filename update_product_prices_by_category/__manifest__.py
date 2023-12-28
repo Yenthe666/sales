@@ -18,6 +18,7 @@
     # for the full list
     'category': 'Sales/Sales',
     'version': '16.0.1.0.1',
+    'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
     'depends': ['sale_management', 'purchase'],
