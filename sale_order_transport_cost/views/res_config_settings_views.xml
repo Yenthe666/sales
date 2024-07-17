@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="65"/>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='quotation_order_setting_container']" position="inside">
+                <setting id="order_default_values" string="Sale order total for transport cost" help="Orders with a total below this value will have transportation costs.">
+                    <field name="sale_order_total_for_transport_cost"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
