@@ -1,4 +1,5 @@
 from odoo import api, fields, models, _
+from odoo.fields import Command
 
 
 class SaleOrder(models.Model):
@@ -36,7 +37,6 @@ class SaleOrder(models.Model):
 
     def _add_transportation_costs(self):
         ICP = self.env['ir.config_parameter'].sudo()
-        so_line_env = self.env['sale.order.line']
         product_env = self.env['product.product']
         # Get the order total limit for transportation costs
         order_limit = ICP.get_param('sale_order_transport_cost.sale_order_total_for_transport_cost')
@@ -56,7 +56,7 @@ class SaleOrder(models.Model):
                 # transport cost
                 if order.amount_total < int(order_limit) and not transport_line:
                     order_line_vals = order._prepare_transport_line(product_env.browse(transport_product))
-                    so_line_env.create(order_line_vals)
+                    order.write({"order_line": [Command.create(order_line_vals)]})
                 # If there is transport cost, but the total amount is above the limit, remove the transport cost
                 elif transport_line and self.amount_total - transport_line[0].price_subtotal >= int(order_limit) and \
                         transport_line:
