@@ -54,7 +54,7 @@ class SaleOrder(models.Model):
                 transport_line = order.order_line.filtered(lambda line: line.product_id.id == transport_product)
                 # If there is no transport cost and the amount is below the limit, add an order line with the
                 # transport cost
-                if order.amount_total < int(order_limit) and not transport_line:
+                if order.amount_total and order.amount_total < int(order_limit) and not transport_line:
                     order_line_vals = order._prepare_transport_line(product_env.browse(transport_product))
                     order.write({"order_line": [Command.create(order_line_vals)]})
                 # If there is transport cost, but the total amount is above the limit, remove the transport cost
