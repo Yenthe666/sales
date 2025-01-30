@@ -24,6 +24,7 @@ class SaleOrder(models.Model):
             'order_id': self.id,
             'product_id': transport_product.id,
             'product_uom': transport_product.uom_id.id,
+            'product_uom_qty': 1,
             }
 
     @api.model
